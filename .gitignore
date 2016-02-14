@@ -1,0 +1,9 @@
+#Ignore data folders
+data/database/
+data/files/
+
+# Ignore contrib code
+drupal/
+
+# Ignore common IDE files
+.idea
