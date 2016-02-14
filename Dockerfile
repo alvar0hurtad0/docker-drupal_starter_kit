@@ -24,3 +24,12 @@ RUN drupal init
 
 # Add important folders
 ADD drupal /var/www/html
+ADD data/settings.php /var/www/html/sites/default/settings.php
+ADD configuration /var/www/configuration
+
+RUN usermod -u 1000 www-data
+RUN chown www-data:www-data /var/www/html/sites/default/settings.php
+RUN chmod 775 /var/www/html/sites/default/settings.php
+RUN chown -R www-data:www-data /var/www/html/sites/default/
+RUN chown -R www-data:www-data /var/www/configuration
+

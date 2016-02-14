@@ -27,7 +27,6 @@ web:
     - "80:80"
   volumes:
     - ./data/files:/var/www/html/sites/default/files
-    - ./data/settings.php:/var/www/html/sites/default/settings.php
     - ./configuration:/var/www/configuration
   links:
     - mysql:mysql
