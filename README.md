@@ -1,3 +1,7 @@
+WARNIG!!!
+Currently this is a beta project for testing purposes.
+It's not ready for production sites.
+
 Prerequisites:
  * Docker
  * docker-machine
