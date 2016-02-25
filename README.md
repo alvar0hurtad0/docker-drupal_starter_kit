@@ -19,3 +19,6 @@ Run `docker-compose build`
 ## Start
 
 Run `docker-compose up` 
+
+open your browser and go to:
+http://localhost/
