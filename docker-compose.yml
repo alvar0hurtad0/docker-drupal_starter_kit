@@ -14,7 +14,7 @@ mysql:
     - ./data/database:/var/lib/mysql
 
 web:
-  image: alvar0hurtad0/docker-drupal_starter_kit:lastest
+  build: .
   # Environment variables
   environment:
     # Drupal settings
