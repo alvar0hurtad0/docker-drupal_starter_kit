@@ -2,14 +2,20 @@ WARNIG!!!
 Currently this is a beta project for testing purposes.
 It's not ready for production sites.
 
-Prerequisites:
- * Docker
- * docker-machine
- * Composer (only recommended)
+## Prerequisites
 
-First build you need drupal installed on drupal folder:
- * composer create-project drupal/drupal drupal 8.0.x
- 
-If you don't have composer installed you can simply download drupal on a folder called drupal.
+Install [Docker](https://www.docker.com/) on your system.
 
-docker-compose up
+* [Install instructions](https://docs.docker.com/installation/mac/) for Mac OS X
+* [Install instructions](https://docs.docker.com/installation/ubuntulinux/) for Ubuntu Linux
+* [Install instructions](https://docs.docker.com/installation/) for other platforms
+
+Install [Docker Compose](http://docs.docker.com/compose/) on your system.
+
+## Setup
+
+Run `docker-compose build`
+
+## Start
+
+Run `docker-compose up` 
