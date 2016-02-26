@@ -13,6 +13,12 @@ mysql:
   volumes:
     - ./data/database:/var/lib/mysql
 
+data:
+  build: ./data
+  volumes:
+    - /var/www/html/sites/default/files
+    - /var/www/html/sites/default/files/translations
+
 web:
   build: .
   # Environment variables
@@ -26,8 +32,9 @@ web:
   ports:
     - "80:80"
   volumes:
-    - ./data/files:/var/www/html/sites/default/files
     - ./configuration:/var/www/configuration
+  volumes_from:
+    - data
   links:
     - mysql:mysql
   working_dir: /var/www/html

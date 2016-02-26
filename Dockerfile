@@ -14,6 +14,8 @@ RUN composer global require drush/drush:8.* \
 COPY assets/settings.php /var/www/html/sites/default/settings.php
 RUN usermod -u 1000 www-data \
     && chown www-data:www-data /var/www/html/sites/default/settings.php \
+    && mkdir /var/www/html/sites/default/files \
+    && mkdir /var/www/html/sites/default/files/translations \
     && chown -R www-data:www-data /var/www/html/sites/default/ \
     && mkdir /var/www/configuration \
     && chown -R www-data:www-data /var/www/configuration
