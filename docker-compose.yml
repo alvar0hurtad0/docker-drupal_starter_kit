@@ -10,10 +10,15 @@ mysql:
   expose:
     - "3306"
   restart: always
-  volumes:
-    - ./data/database:/var/lib/mysql
+  volumes_from:
+    - databasefiles
 
-data:
+databasefiles:
+  build: ./data
+  volumes:
+    - /var/lib/mysql
+
+webfiles:
   build: ./data
   volumes:
     - /var/www/html/sites/default/files
@@ -31,10 +36,11 @@ web:
     DRUPAL_DBURL: mysql://drupal:drupal@mysql:3306/local_drupal
   ports:
     - "80:80"
+    - "22:2222"
   volumes:
     - ./configuration:/var/www/configuration
   volumes_from:
-    - data
+    - webfiles
   links:
     - mysql:mysql
   working_dir: /var/www/html
