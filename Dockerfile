@@ -15,8 +15,7 @@ COPY data/settings.php /var/www/html/sites/default/settings.php
 
 RUN usermod -u 1000 www-data \
     && chown www-data:www-data /var/www/html/sites/default/settings.php \
-    && mkdir /var/www/html/sites/default/files \
-    && mkdir /var/www/html/sites/default/files/translations \
+    && mkdir -p /var/www/html/sites/default/files/translations \
     && chown -R www-data:www-data /var/www/html/sites/default/ \
     && mkdir /var/www/configuration \
     && chown -R www-data:www-data /var/www/configuration
@@ -25,4 +24,4 @@ RUN usermod -u 1000 www-data \
 RUN useradd -d /var/www drupaluser
 COPY assets/ssh/sshd_config /etc/ssh/sshd_config
 RUN mkdir -p /var/www/.ssh
-COPY assets/ssh/authorized_keys /var/www/.ssh
+COPY assets/ssh/authorized_keys /var/www/.ssh/
