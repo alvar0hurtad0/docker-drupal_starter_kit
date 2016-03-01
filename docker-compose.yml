@@ -36,7 +36,7 @@ web:
     DRUPAL_DBURL: mysql://drupal:drupal@mysql:3306/local_drupal
   ports:
     - "80:80"
-    - "22:2222"
+    - "222:222"
   volumes:
     - ./configuration:/var/www/configuration
   volumes_from:
