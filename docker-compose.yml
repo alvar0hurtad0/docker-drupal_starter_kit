@@ -25,7 +25,7 @@ webfiles:
     - /var/www/html/sites/default/files/translations
 
 web:
-  build: .
+  build: ./environments/dev/
   # Environment variables
   environment:
     # Drupal settings
@@ -38,7 +38,9 @@ web:
     - "80:80"
     - "222:222"
   volumes:
+    - ./profile:/var/www/html/profiles/custom_profile/
     - ./configuration:/var/www/configuration
+    - ./libraries:/var/www/html/libraries/
   volumes_from:
     - webfiles
   links:

@@ -1,0 +1,15 @@
+.home-lastest-news {
+  .views-col{
+    float: left;
+    padding-right: 1em;
+    &:col-3 {
+      padding-right: 0;
+    }
+  }
+  @media (max-width: 991px) {
+    .views-col {
+      width: 100% !important;
+      padding: 0;
+    }
+  }
+}

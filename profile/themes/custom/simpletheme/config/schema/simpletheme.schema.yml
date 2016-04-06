@@ -1,0 +1,4 @@
+# Schema for the configuration files of the Bartik theme.
+simpletheme.settings:
+  type: theme_settings
+  label: 'Simpletheme settings'
