@@ -1,49 +1,55 @@
-# MySQL Server
-mysql:
-  image: mysql:5.7
-  environment:
-    MYSQL_USER: drupal
-    MYSQL_PASSWORD: drupal
-    MYSQL_DATABASE: local_drupal
-    MYSQL_ROOT_PASSWORD: 'root'
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-  expose:
-    - "3306"
-  restart: always
-  volumes_from:
-    - databasefiles
+version: "2"
+services:
+  # MySQL Server
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+      MYSQL_DATABASE: local_drupal
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    expose:
+      - "3306"
+    restart: always
+    volumes_from:
+      - databasefiles
 
-databasefiles:
-  build: ./data
-  volumes:
-    - /var/lib/mysql
+  databasefiles:
+    build: ./data
+    volumes:
+      - /var/lib/mysql
 
-webfiles:
-  build: ./data
-  volumes:
-    - /var/www/html/sites/default/files
-    - /var/www/html/sites/default/files/translations
+  webfiles:
+    build: ./data
+    volumes:
+      - /var/www/html/sites/default/files
+      - /var/www/html/sites/default/files/translations
 
-web:
-  build: ./environments/dev/
+  web:
+    build:
+      context: .
+      args:
+        DEVELOPMENT: 1
   # Environment variables
-  environment:
-    # Drupal settings
-    DRUPAL_PROFILE: custom
-    DRUPAL_SITE_NAME: drupal
-    DRUPAL_USER: admin
-    DRUPAL_PASS: admin
-    DRUPAL_DBURL: mysql://drupal:drupal@mysql:3306/local_drupal
-  ports:
-    - "80:80"
-    - "222:222"
-  volumes:
-    - ./profile:/var/www/html/profiles/custom_profile/
-    - ./configuration:/var/www/configuration
-    - ./libraries:/var/www/html/libraries/
-  volumes_from:
-    - webfiles
-  links:
-    - mysql:mysql
-  working_dir: /var/www/html
-  restart: always
+    environment:
+      # Drupal settings
+      DRUPAL_PROFILE: custom
+      DRUPAL_SITE_NAME: drupal
+      DRUPAL_USER: admin
+      DRUPAL_PASS: admin
+      DRUPAL_DBURL: mysql://drupal:drupal@mysql:3306/local_drupal
+
+    ports:
+      - "80:80"
+      - "222:222"
+    volumes:
+      - ./profile:/var/www/html/profiles/custom_profile/
+      - ./configuration:/var/www/configuration
+      - ./libraries:/var/www/html/libraries/
+    volumes_from:
+      - webfiles
+    links:
+      - mysql:mysql
+    working_dir: /var/www/html
+    restart: always
