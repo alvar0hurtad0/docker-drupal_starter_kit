@@ -1,7 +1,7 @@
-FROM drupal:8
+FROM drupal:8.1
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install git-all php5-curl mysql-client openssh-server wget
- 
+RUN apt-get update && apt-get -y install git-all php5-curl mysql-client openssh-server wget
+RUN pecl install uploadprogress
 # Install Composer.
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
