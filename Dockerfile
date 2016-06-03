@@ -31,7 +31,6 @@ RUN chown drupaluser /var/www/.ssh/ -R
 
 # Configure services
 COPY assets/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY assets/apache/passwords /etc/apache2/passwords
 # add modules, themes and libraries
 ADD libraries /var/www/html/libraries
 ADD profile /var/www/html/profiles/custom_profile
