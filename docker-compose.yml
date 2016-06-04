@@ -16,12 +16,12 @@ services:
       - databasefiles
 
   databasefiles:
-    build: ./data
+    image: busybox
     volumes:
       - /var/lib/mysql
 
   webfiles:
-    build: ./data
+    image: busybox
     volumes:
       - /var/www/html/sites/default/files
       - /var/www/html/sites/default/files/translations
