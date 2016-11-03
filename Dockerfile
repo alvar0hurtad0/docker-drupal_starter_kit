@@ -1,6 +1,6 @@
-FROM drupal:8
+FROM drupal:8.2
 
-RUN apt-get update && apt-get -y install git-all php5-curl mysql-client openssh-server wget sudo unzip
+RUN apt-get update && apt-get -y install git-all php5-curl mysql-client openssh-server wget sudo unzip vim
 RUN pecl install uploadprogress
 # Install Composer.
 RUN curl -sS https://getcomposer.org/installer | php
