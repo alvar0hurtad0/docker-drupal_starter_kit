@@ -1,0 +1,14 @@
+{
+  "name": "drupal/ah_test",
+  "type": "drupal-module",
+  "description": "My Awesome Module",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/ah_test",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/ah_test",
+    "source": "http://cgit.drupalcode.org/ah_test"
+  },
+  "require": { }
+}

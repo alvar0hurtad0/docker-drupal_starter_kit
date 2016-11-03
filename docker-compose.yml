@@ -14,6 +14,8 @@ services:
     restart: always
     volumes_from:
       - databasefiles
+    volumes:
+      - ./assets/mysql:/etc/mysql/conf.d
 
   databasefiles:
     image: busybox
@@ -31,7 +33,7 @@ services:
       context: .
       args:
         DEVELOPMENT: 1
-  # Environment variables
+    # Environment variables
     environment:
       # Drupal settings
       DRUPAL_PROFILE: custom
@@ -45,7 +47,9 @@ services:
       - "222:222"
     volumes:
       - ./profile:/var/www/html/profiles/custom_profile/
-      - ./configuration:/var/www/configuration
+      - ./modules:/var/www/html/modules/
+      - ./themes:/var/www/html/themes/
+      - ./configuration:/var/www/config
       - ./libraries:/var/www/html/libraries/
     volumes_from:
       - webfiles
