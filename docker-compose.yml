@@ -45,12 +45,10 @@ services:
     ports:
       - "80:80"
       - "222:222"
+      - "9001:9000"
     volumes:
-      - ./profile:/var/www/html/profiles/custom_profile/
-      - ./modules:/var/www/html/modules/
-      - ./themes:/var/www/html/themes/
-      - ./configuration:/var/www/config
-      - ./libraries:/var/www/html/libraries/
+      - ./web:/var/www/html/
+      - ./vendor:/var/www/vendor/
     volumes_from:
       - webfiles
     links:

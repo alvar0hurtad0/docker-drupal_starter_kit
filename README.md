@@ -10,6 +10,7 @@ Install [Docker Compose](http://docs.docker.com/compose/) on your system.
 
 ## Setup
 
+Put your drupal on a folder called "web"
 Run `docker-compose build`
 
 ## Start
@@ -19,4 +20,3 @@ Run `docker-compose up`
 open your browser and go to:
 http://localhost/core/install.php
 
-Install the custom_profile profile
