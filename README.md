@@ -10,13 +10,15 @@ Install [Docker Compose](http://docs.docker.com/compose/) on your system.
 
 ## Setup
 
-Put your drupal on a folder called "web"
+Put your drupal on the folder called "web". Currently only have a gitkeep file to get it on git pull of this repo.
+Consider using your own composer.jso and composer.lock files.
+Remove my public key from the file assets/ssh/authorized_keys and put yours. Else the only people who can access to your containers is me.
+
 Run `docker-compose build`
 
 ## Start
 
 Run `docker-compose up` 
 
-open your browser and go to:
-http://localhost/core/install.php
-
+After that you can enter with ssh into the running container with: docker-compose exec --user drupaluser web bash
+And access to your running site on http://localhost
