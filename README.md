@@ -14,7 +14,7 @@ Put your drupal on the folder called "web". Currently only have a gitkeep file t
 
 Consider using your own composer.jso and composer.lock files.
 
-Remove my public key from the file assets/ssh/authorized_keys and put yours. Else the only people who can access to your containers is me.
+Remove my public key from the file assets/ssh/authorized_keys and put yours. Else the only person who can access to your containers is me.
 
 Run `docker-compose build`
 
