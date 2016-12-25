@@ -21,4 +21,5 @@ Run `docker-compose build`
 Run `docker-compose up` 
 
 After that you can enter with ssh into the running container with: docker-compose exec --user drupaluser web bash
+
 And access to your running site on http://localhost
